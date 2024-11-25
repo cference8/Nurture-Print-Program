@@ -36,7 +36,7 @@ def process_pdf(file_path, results, index):
 
         # Modify the output file name
         file_name, file_ext = os.path.splitext(os.path.basename(file_path))  # Separate name and extension
-        output_file_name = f"{file_name}_Printer-File{file_ext}"  # Append "_Printer-File" before the extension
+        output_file_name = f"{file_name}_Print-File{file_ext}"  # Append "_Printer-File" before the extension
         output_path = os.path.join(os.path.dirname(file_path), output_file_name)  # Full path
 
         # Save the processed file

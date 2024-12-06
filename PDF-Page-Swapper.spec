@@ -5,7 +5,7 @@ a = Analysis(
     ['PDF-Page-Swapper.py'],
     pathex=[],
     binaries=[],
-    datas=[('scribe-logo-final.png', '.'), ('C:/Users/James/AppData/Local/Programs/Python/Python313/Lib/site-packages/tkinterdnd2', 'tkinterdnd2'), ('scribe-icon.ico', '.')],
+    datas=[('scribe-logo-final.webp', '.'), ('C:/Users/James/AppData/Local/Programs/Python/Python313/Lib/site-packages/tkinterdnd2', 'tkinterdnd2'), ('scribe-icon.ico', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

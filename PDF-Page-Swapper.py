@@ -21,7 +21,7 @@ def resource_path(relative_path):
 
 def process_pdf(file_path, results, index):
     """
-    Process the PDF file to swap the outside and inside pages.
+    Process the PDF file to swap the outside and inside pages and reverse the page order.
     The result is saved in the same directory as the input file.
     """
     try:
@@ -34,14 +34,19 @@ def process_pdf(file_path, results, index):
                 writer.add_page(reader.pages[i + 1])  # Inside page
             writer.add_page(reader.pages[i])  # Outside page
 
+        # Reverse the page order
+        reversed_writer = PdfWriter()
+        for i in range(len(writer.pages)):
+            reversed_writer.add_page(writer.pages[len(writer.pages) - 1 - i])
+
         # Modify the output file name
         file_name, file_ext = os.path.splitext(os.path.basename(file_path))  # Separate name and extension
-        output_file_name = f"{file_name}_Print-File{file_ext}"  # Append "_Printer-File" before the extension
+        output_file_name = f"{file_name}_Reversed_Print-File{file_ext}"  # Append "_Reversed_Print-File" before the extension
         output_path = os.path.join(os.path.dirname(file_path), output_file_name)  # Full path
 
         # Save the processed file
         with open(output_path, "wb") as output_file:
-            writer.write(output_file)
+            reversed_writer.write(output_file)
 
         results[index] = f"Processed: {output_path}"  # Save the success result
     except Exception as e:
@@ -128,11 +133,10 @@ app.iconbitmap(resource_path("scribe-icon.ico"))
 
 # Load and add logo image
 logo_image = ctk.CTkImage(
-    light_image=Image.open(resource_path("scribe-logo-final.png")),  # Use light theme image
-    dark_image=Image.open(resource_path("scribe-logo-final.png")),  # Same for dark theme
+    light_image=Image.open(resource_path("scribe-logo-final.webp")),  # Use light theme image
+    dark_image=Image.open(resource_path("scribe-logo-final.webp")),  # Same for dark theme
     size=(200, 100),  # Resize the logo to fit the space
 )
-
 
 # Add logo label
 logo_label = ctk.CTkLabel(app, image=logo_image, text="")

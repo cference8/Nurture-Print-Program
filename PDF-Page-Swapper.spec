@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['PDF-Page-Swapper.py'],
+    ['PDF-Page-Reorder.py'],
     pathex=[],
     binaries=[],
     datas=[('scribe-logo-final.webp', '.'), ('C:/Users/James/AppData/Local/Programs/Python/Python313/Lib/site-packages/tkinterdnd2', 'tkinterdnd2'), ('scribe-icon.ico', '.')],
@@ -22,7 +22,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='PDF-Page-Swapper',
+    name='PDF-Page-Reorder',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

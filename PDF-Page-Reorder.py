@@ -41,7 +41,7 @@ def process_pdf(file_path, results, index):
 
         # Modify the output file name
         file_name, file_ext = os.path.splitext(os.path.basename(file_path))  # Separate name and extension
-        output_file_name = f"{file_name}_Reversed_Print-File{file_ext}"  # Append "_Reversed_Print-File" before the extension
+        output_file_name = f"{file_name}_Reordered{file_ext}"  # Append "_Reordered" before the extension
         output_path = os.path.join(os.path.dirname(file_path), output_file_name)  # Full path
 
         # Save the processed file
@@ -125,7 +125,7 @@ ctk.set_default_color_theme("blue")  # Color theme
 
 # Use TkinterDnD for drag-and-drop support
 app = TkinterDnD.Tk()
-app.title("PDF Page Swapper")
+app.title("PDF Page Reorder")
 app.geometry("400x300")
 
 # Set application icon
